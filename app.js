@@ -2,13 +2,13 @@ const express = require('express'),
 app = express(),
 mongodb = require('mongodb'),
 mongoose = require('mongoose'),
-port = process.env.port || 3000;
-myDB = 'mongodb://localhost/advancedproject3',
+port = process.env.port || 3000,
+myDB = 'mongodb://localhost/advancedproject1',
 User = require('./Models/user.models.js'),
 UserRoutes = require('./Controllers/userroutes.js');
 
 mongoose.connect(myDB);
-app.use('./user',UserRoutes);
+app.use('/user',UserRoutes);
 
 
 app.listen(port,(error)=>{
@@ -17,7 +17,7 @@ app.listen(port,(error)=>{
 	}else{
 		console.log(error);
 	}
-
+ 
 }
 )
 
